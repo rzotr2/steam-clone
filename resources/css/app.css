@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        background-color: theme("colors.bg-primary");
+        font-family: "Motiva Sans", Sans-serif, sans-serif;
+        line-height: 26px;
+    }
+  :root {
+        --radius: 0.5rem;
+    }
+}
