@@ -1,10 +1,14 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
+import preset from './vendor/filament/support/tailwind.config.preset'
 
 /**defaultTheme @type {import('tailwindcss').Config} */
 export default {
     darkMode: ['class'],
     content: [
-        './resources/**/*.tsx'
+        './resources/**/*.tsx',
+        './app/Filament/**/*.php',
+        './resources/views/**/*.blade.php',
+        './vendor/filament/**/*.blade.php',
     ],
     theme: {
     	extend: {
@@ -53,4 +57,6 @@ export default {
     		}
     	}
     },
+    plugins: [],
+    presets: [preset],
 };
