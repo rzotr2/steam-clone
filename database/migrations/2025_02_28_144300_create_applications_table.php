@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->integer('price')->change();
-            $table->float('discount')->change();
+            $table->integer('price')->nullable();
+            $table->float('discount')->nullable();
             $table->string('publisher')->nullable();
             $table->string('developer')->nullable();
             $table->json('tags')->nullable();
