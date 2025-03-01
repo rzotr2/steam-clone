@@ -15,11 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->text('description')->nullable();
+            $table->integer('price')->change();
+            $table->float('discount')->change();
             $table->string('publisher')->nullable();
             $table->string('developer')->nullable();
             $table->json('tags')->nullable();
+            $table->json('genre')->nullable();
             $table->date('release')->nullable();
             $table->foreignId('dlc_content')->nullable()->constrained('applications')->onDelete('cascade');
+            $table->foreignId('peg_rating')->nullable()->constrained('pegs')->onDelete('cascade');
             $table->json('language_interface')->nullable();
             $table->json('language_full')->nullable();
             $table->json('language_subtitle')->nullable();

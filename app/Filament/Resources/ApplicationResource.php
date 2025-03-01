@@ -37,6 +37,17 @@ class ApplicationResource extends Resource
                             ->relationship('publishers', 'name')
                             ->preload()
                             ->required(),
+                        Forms\Components\TextInput::make('price')
+                            ->label('Price')
+                            ->required()
+                            ->numeric(),
+                        Forms\Components\TextInput::make('discount')
+                            ->label('Discount from 0 to 1')
+                            ->required()
+                            ->numeric(),
+                        Forms\Components\Select::make('peg_rating')
+                            ->label('Peg rating')
+                            ->relationship('pegs', 'name'),
                         Forms\Components\MultiSelect::make('developer')
                             ->label('Developer')
                             ->relationship('developers', 'name')
@@ -53,6 +64,10 @@ class ApplicationResource extends Resource
                             ->preload()
                             ->multiple()
                             ->required(),
+                        Forms\Components\MultiSelect::make('genre')
+                            ->label('Select genre')
+                            ->relationship('genres', 'name')
+                            ->preload(),
                         Forms\Components\Textarea::make('description')
                             ->required()
                             ->columnSpanFull(),

@@ -15,7 +15,7 @@ class Application extends Model
         'name', 'description', 'publisher', 'developer', 'tags',
         'release', 'dlc_content', 'language_interface', 'language_full',
         'language_subtitle', 'part_controller', 'controller', 'support_system',
-        'min_ram', 'r_ram', 'storage'
+        'min_ram', 'r_ram', 'storage', 'price', 'discount', 'peg_rating', 'genre'
     ];
 
     protected $casts = [
@@ -90,5 +90,15 @@ class Application extends Model
     public function parentApp()
     {
         return $this->belongsTo(Application::class, 'dlc_content');
+    }
+
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class, 'application_genre');
+    }
+
+    public function pegs()
+    {
+        return $this->belongsTo(Peg::class, 'name');
     }
 }
