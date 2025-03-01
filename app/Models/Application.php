@@ -43,6 +43,11 @@ class Application extends Model
         return $this->hasOne(SystemRequiredLinux::class, 'app_id');
     }
 
+    public function systems()
+    {
+        return $this->belongsToMany(System::class, 'application_system', 'application_id', 'system_id');
+    }
+
     public function supportSystems()
     {
         return $this->belongsToMany(System::class, 'application_system', 'application_id', 'system_id');

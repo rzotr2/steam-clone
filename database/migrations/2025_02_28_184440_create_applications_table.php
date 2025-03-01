@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->string('publisher')->default('Unknown Publisher');
+            $table->string('publisher')->nullable();
             $table->string('developer')->nullable();
             $table->json('tags')->nullable();
             $table->date('release')->nullable();

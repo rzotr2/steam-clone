@@ -12,6 +12,9 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Filters\SelectFilter;
+use App\Filament\Resources\ApplicationResource;
+use Filament\Forms\Components\Section;
 
 class SystemRequiredLinuxResource extends Resource
 {
@@ -23,29 +26,42 @@ class SystemRequiredLinuxResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('app_id')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('min_cpu')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('min_gpu')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('min_audio')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('min_addition')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('r_cpu')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('r_gpu')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('r_audio')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('r_addition')
-                    ->maxLength(255),
+                Section::make('Application')
+                    ->schema([ 
+                        Forms\Components\Select::make('app_id')
+                    ->relationship('application', 'name', function ($query) {
+                        return $query->whereHas('systems', fn ($q) => $q->where('name', 'Linux'));
+                    })
+                    ->searchable()
+                    ->preload()
+                    ->required(),
+                ]),
+                Section::make('Minimum required')
+                    ->schema([
+                        Forms\Components\TextInput::make('min_cpu')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('min_gpu')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('min_audio')
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('min_addition')
+                            ->maxLength(255),
+                    ])->columns(2),
+                Section::make('Recommended required')
+                    ->schema([
+                        Forms\Components\TextInput::make('r_cpu')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('r_gpu')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('r_audio')
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('r_addition')
+                            ->maxLength(255),
+                    ])->columns(2),
             ]);
     }
 

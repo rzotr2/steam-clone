@@ -16,4 +16,9 @@ class System extends Model
     {
         return $this->belongsToMany(Application::class, 'application_system', 'system_id', 'application_id');
     }
+
+    public function applications2()
+    {
+        return $this->hasMany(Application::class, 'support_system');
+    }
 }

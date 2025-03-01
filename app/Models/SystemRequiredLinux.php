@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class SystemRequiredLinux extends Model
 {
@@ -15,7 +16,7 @@ class SystemRequiredLinux extends Model
         'r_cpu', 'r_gpu', 'r_audio', 'r_addition'
     ];
 
-    public function application()
+    public function application(): BelongsTo
     {
         return $this->belongsTo(Application::class, 'app_id');
     }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('system_required_macs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('app_id')->constrained('applications')->onDelete('cascade');
+            $table->foreignId('app_id')->unique()->constrained('applications')->onDelete('cascade');
             $table->string('min_cpu');
             $table->string('min_gpu');
             $table->string('min_audio')->nullable();
