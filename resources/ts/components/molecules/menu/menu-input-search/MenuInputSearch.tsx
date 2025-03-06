@@ -1,6 +1,6 @@
 import * as React from "react";
-import InputElement from "../../../atoms/inputs/input-element";
-import SearchButton from "../../../atoms/buttons/search";
+import InputElement from "../../../atoms/inputs/InputElement";
+import SearchButton from "../../../atoms/buttons/Search";
 
 export default function MenuInputSearch() {
     return (

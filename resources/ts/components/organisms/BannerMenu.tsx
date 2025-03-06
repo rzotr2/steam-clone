@@ -1,6 +1,6 @@
 import * as React from "react";
-import Banner from "../atoms/video/banner";
-import Menu from "./menu";
+import Banner from "../atoms/video/Banner";
+import Menu from "./Menu";
 
 export default function BannerMenu() {
     return (

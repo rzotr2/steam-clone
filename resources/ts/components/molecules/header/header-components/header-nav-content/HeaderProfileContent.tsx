@@ -1,5 +1,5 @@
 import * as React from "react";
-import NavLinkDropdown from "../../../../atoms/typography/link/nav-link-dropdown";
+import NavLinkDropdown from "../../../../atoms/typography/link/NavLinkDropdown";
 
 export default function HeaderProfileContent() {
     return (

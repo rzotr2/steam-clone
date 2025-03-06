@@ -1,9 +1,9 @@
 import * as React from "react";
 import { NavigationMenu } from "radix-ui";
 import {StaticDataProps} from "../../../../models";
-import HeaderStoreContent from "./header-nav-content/header-store-content";
-import HeaderCommunityContent from "./header-nav-content/header-community-content";
-import HeaderProfileContent from "./header-nav-content/header-profile-content";
+import HeaderStoreContent from "./header-nav-content/HeaderStoreContent";
+import HeaderCommunityContent from "./header-nav-content/HeaderCommunityContent";
+import HeaderProfileContent from "./header-nav-content/HeaderProfileContent";
 
 export default function HeaderNav({text}: StaticDataProps) {
     const classActive = "text-header-active border-header-active hover:text-header-active";
@@ -13,11 +13,11 @@ export default function HeaderNav({text}: StaticDataProps) {
             <NavigationMenu.Root className="items-center justify-between
                                 text-text-primary flex leading-[1.2rem]">
                 <NavigationMenu.List className="flex center list-none">
-                    <NavigationMenu.Item className="relative pb-1">
+                    <NavigationMenu.Item className="relative pb-1 z-20">
                         <NavigationMenu.Trigger>
                             <a href="/store"
                                 className={"text-size-header font-[550] group flex select-none items-center justify-between " +
-                                "gap-0.5 me-6 opacity-90 hover:opacity-100 border-b-2 border-transparent hover:text-text-primary " + classActive}>
+                                `gap-0.5 me-6 opacity-90 hover:opacity-100 border-b-2 border-transparent hover:text-text-primary ${classActive}`}>
                                STORE
                             </a>
                         </NavigationMenu.Trigger>
@@ -26,7 +26,7 @@ export default function HeaderNav({text}: StaticDataProps) {
                             <HeaderStoreContent />
                         </NavigationMenu.Content>
                     </NavigationMenu.Item>
-                    <NavigationMenu.Item className="relative pb-1">
+                    <NavigationMenu.Item className="relative pb-1 z-20">
                         <NavigationMenu.Trigger>
                             <a href="#"
                                className={"text-size-header font-[550] group flex select-none items-center justify-between " +
@@ -39,7 +39,7 @@ export default function HeaderNav({text}: StaticDataProps) {
                             <HeaderCommunityContent/>
                         </NavigationMenu.Content>
                     </NavigationMenu.Item>
-                    <NavigationMenu.Item className="relative pb-1">
+                    <NavigationMenu.Item className="relative pb-1 z-20">
                         <NavigationMenu.Trigger>
                             <a href="#"
                                className={"text-size-header font-[550] group flex select-none items-center justify-between " +

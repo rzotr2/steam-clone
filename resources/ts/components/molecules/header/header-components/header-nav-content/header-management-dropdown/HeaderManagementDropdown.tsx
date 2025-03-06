@@ -2,17 +2,16 @@ import {DropdownMenu } from "radix-ui";
 import * as React from "react";
 import {StaticDataProps} from "../../../../../../models";
 import { IoMdArrowDropdown } from "react-icons/io";
-import NavLinkDropdown from "../../../../../atoms/typography/link/nav-link-dropdown";
+import NavLinkDropdown from "../../../../../atoms/typography/link/NavLinkDropdown";
 
 export default function HeaderManagementDropdown({text, balance}: StaticDataProps) {
     return (
         <>
-            <div className="text-text-primary ">
+            <div className="text-text-primary">
                 <DropdownMenu.Root>
-                    <DropdownMenu.Trigger asChild className="brightness-75 hover:brightness-125">
+                    <DropdownMenu.Trigger asChild className="brightness-75 hover:brightness-125 relative">
                         <button
-                            className="
-                            flex items-center appearance-none outline-none"
+                            className="flex items-center appearance-none outline-none"
                             aria-label="Customise options"
                         >
                             {text.toLowerCase()}
@@ -21,7 +20,7 @@ export default function HeaderManagementDropdown({text, balance}: StaticDataProp
                     </DropdownMenu.Trigger>
 
                     <DropdownMenu.Portal>
-                        <DropdownMenu.Content>
+                        <DropdownMenu.Content className="absolute z-50 -right-5">
                             <DropdownMenu.Item
                                 className={"flex items-center appearance-none outline-none hover:bg-[#DCDEDF] hover:text-[#171A21] " +
                                 "bg-[#3D4450] w-auto min-w-max text-text-dropdown px-4"}>
@@ -70,7 +69,7 @@ export default function HeaderManagementDropdown({text, balance}: StaticDataProp
                     </DropdownMenu.Portal>
                 </DropdownMenu.Root>
             </div>
-            <div className="text-text-primary brightness-75 hover:brightness-125">
+            <div className="text-text-primary text-center text-size-subtitle-lg brightness-75 hover:brightness-125">
                 <a href="#">{balance}</a>
             </div>
         </>
