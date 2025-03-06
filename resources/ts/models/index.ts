@@ -4,14 +4,6 @@ export type VariantProps = {
     additionalClasses?: string,
 }
 
-export type TextProps = {
-    variant?: "title" | "subtitle" | "body" | "heading"
-        | "main-heading" | "sub-heading" | "carousel-description"
-        | "carousel-badge" | null;
-    additionalClasses?: string,
-    text?: string | null
-}
-
 export type AvatarProps = {
     variant?: "primary-sm" | "primary-xl" | "outline-sm" | "outline-xl" | null;
     additionalClasses?: string,
@@ -37,10 +29,23 @@ export type Game = {
     tags?: string[],
     description?: string
     link: string,
-    platforms: string[]
+    platforms: string[],
+    discount?: string,
+    regularPrice?: string,
+    newPrice?: string,
+    releaseDate: number,
+    reviews: {
+        grade: "Mixed" | "Mostly Positive" | "Very Positive" | "Excellent" | "Overwhelmingly Positive",
+        reviewsSummary: string
+    }
 }
 
-export type CarouselDataProps = {
+export type GameCategory = {
+    name: string,
+    url: string
+}
+
+export type CarouselPlatformProps = {
     platforms: string[];
 }
 

@@ -4,7 +4,7 @@ import { Avatar } from "radix-ui"
 
 export default function ProfileAvatar({variant = null, url = null, additionalClasses = ''}: AvatarProps) {
     let className: string = "";
-    let src = url || "https://www.testhouse.net/wp-content/uploads/2021/11/default-avatar.jpg"
+    let src = url || "https://i.ibb.co/ds9RR2Xf/2025-02-09-12-18-07.jpg"
 
     switch (variant) {
         case "primary-sm": {

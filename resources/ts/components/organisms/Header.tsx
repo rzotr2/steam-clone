@@ -1,7 +1,7 @@
 import * as React from "react";
-import SteamLogo from "../atoms/images/steamLogo";
-import HeaderNav from "../molecules/header/header-components/header-nav";
-import HeaderManagement from "../molecules/header/header-components/header-management";
+import SteamLogo from "../atoms/images/SteamLogo";
+import HeaderNav from "../molecules/header/header-components/HeaderNav";
+import HeaderManagement from "../molecules/header/header-components/HeaderManagement";
 
 const userObject = {
     nickname: "RZOTR"
@@ -19,9 +19,7 @@ export default function Header() {
                         <HeaderNav text={userObject.nickname} />
                     </div>
                     <div className="h-[100%] p-2">
-                        <div>
-                            <HeaderManagement/>
-                        </div>
+                        <HeaderManagement />
                     </div>
                 </div>
             </div>

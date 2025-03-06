@@ -1,11 +1,12 @@
 import * as React from "react";
 import { Game } from "../../../models";
 import TextElement from "../../atoms/typography/text/text-element";
-import CarouselPlatforms from "../../atoms/icons/platforms";
+import CarouselPlatforms from "../../atoms/icons/Platforms";
 import { useEffect, useState } from "react";
-import CarouselExtraImage from "../../atoms/carousel/carousel-extra-image";
+import CarouselExtraImage from "../../atoms/carousel/CarouselExtraImage";
+import GameTag from "../../atoms/badges/GameTag";
 
-export default function MainCarouselCard(game: Game) {
+export default function MainCarouselContent({game}: {game: Game}) {
     const [src, setSrc] = useState(game.mainImage);
 
     useEffect((): void => {
@@ -27,8 +28,14 @@ export default function MainCarouselCard(game: Game) {
 
     return (
         <>
-            <a href={game.link} className="flex justify-center box-border overflow-y-hidden">
-                <div className="grid grid-cols-12 gap-0 box-border overflow-y-hidden">
+            <a href={game.link} className="flex justify-center relative group">
+                <div className="absolute top-4 -left-1 hidden custom-xl:group-hover:block animate-[show_0.5s_ease-in-out]">
+                    <img src="https://i.ibb.co/pv6Msjs9/image-removebg-preview-5.png"
+                         alt="arrow"
+                         className="h-6"
+                    />
+                </div>
+                <div className="grid grid-cols-12 gap-0">
                     <div className="col-span-8 flex justify-center">
                         <img src={src} alt={`${game.name} main image`}
                              className="w-full h-[353px] [mask-image:radial-gradient(circle,#000_60%,transparent_99%)]"/>
@@ -42,18 +49,18 @@ export default function MainCarouselCard(game: Game) {
                             <div>
                                 <div className="flex gap-2.5 pb-3 items-center">
                                     <div>
-                                        <CarouselExtraImage url={game.images[0]} name={game.name} />
+                                        <CarouselExtraImage url={game.images[0]} name={game.name}/>
                                     </div>
                                     <div>
-                                        <CarouselExtraImage url={game.images[1]} name={game.name} />
+                                        <CarouselExtraImage url={game.images[1]} name={game.name}/>
                                     </div>
                                 </div>
                                 <div className="flex gap-2.5 items-center">
                                     <div>
-                                        <CarouselExtraImage url={game.images[2]} name={game.name} />
+                                        <CarouselExtraImage url={game.images[2]} name={game.name}/>
                                     </div>
                                     <div>
-                                        <CarouselExtraImage url={game.images[3]} name={game.name} />
+                                        <CarouselExtraImage url={game.images[3]} name={game.name}/>
                                     </div>
                                 </div>
                             </div>
@@ -63,15 +70,14 @@ export default function MainCarouselCard(game: Game) {
                                              additionalClasses="text-text-primary"/>
                             </div>
                             <div className="space-x-2 ps-2">
-                                {game.tags?.map((_, index) => (
-                                    <TextElement key={index} text={game.tags![index]} variant="carousel-badge"
-                                                 additionalClasses="bg-bg-secondary text-text-primary p-0.5"/>
+                                {game.tags?.map((tag, index) => (
+                                    <GameTag text={tag} variant="primary-sm" key={index}/>
                                 ))}
                             </div>
                         </div>
                         <div className="flex justify-between absolute bottom-0 w-full">
                             <div className="ps-2">
-                                <TextElement text={game.price} variant="subtitle"
+                                <TextElement text={game.price} variant="subtitle-lg"
                                              additionalClasses="text-text-primary"/>
                             </div>
                             <div className="pe-2">

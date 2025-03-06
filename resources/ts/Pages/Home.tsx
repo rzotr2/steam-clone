@@ -1,13 +1,13 @@
 import * as React from "react";
-import Link from "../components/atoms/typography/link/link";
+import Link from "../components/atoms/typography/link/Link";
 import Text from "../components/atoms/typography/text/text-element";
-import SearchButton from "../components/atoms/buttons/search";
-import ProfileAvatar from "../components/atoms/avatars/profile-avatar";
-import Input from "../components/atoms/inputs/input-element";
-import Button from "../components/atoms/buttons/button";
-import SteamLogo from "../components/atoms/images/steamLogo";
-import Menu from "../components/organisms/menu";
-import Header from "../components/organisms/header";
+import SearchButton from "../components/atoms/buttons/Search";
+import ProfileAvatar from "../components/atoms/avatars/ProfileAvatar";
+import Input from "../components/atoms/inputs/InputElement";
+import Button from "../components/atoms/buttons/Button";
+import SteamLogo from "../components/atoms/images/SteamLogo";
+import Menu from "../components/organisms/Menu";
+import Header from "../components/organisms/Header";
 
 export default function Home() {
     return (

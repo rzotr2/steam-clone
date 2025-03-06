@@ -1,8 +1,8 @@
 import * as React from "react";
-import { CarouselDataProps } from "../../../models";
+import { CarouselPlatformProps } from "../../../models";
 
 
-export default function CarouselPlatforms({platforms}: CarouselDataProps) {
+export default function CarouselPlatforms({platforms}: CarouselPlatformProps) {
     const platformLinks: Record<string, string> = {
         PC: "https://store.fastly.steamstatic.com/public/images/v6/icon_platform_win.png?v=3",
         MacOS: "https://store.fastly.steamstatic.com/public/images/v6/icon_platform_mac.png",

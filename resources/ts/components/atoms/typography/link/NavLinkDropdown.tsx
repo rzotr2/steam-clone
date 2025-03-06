@@ -5,7 +5,7 @@ export default function NavLinkDropdown({text, url, variant}: {text: string, url
 
     switch(variant) {
         case 'header': {
-            className = "text-size-subtitle w-[100%] px-3 py-1 block";
+            className = "text-size-subtitle-lg w-[100%] px-3 py-1 block";
             break;
         } case 'menu': {
             className = "brightness-75 hover:brightness-100 " +
@@ -13,14 +13,14 @@ export default function NavLinkDropdown({text, url, variant}: {text: string, url
                 "hover:border-white text-size-body";
             break;
         } case 'header-management': {
-                className = "text-size-subtitle w-[100%] py-1 block";
+                className = "text-size-subtitle-lg w-[100%] py-1 block";
                 break;
         }
     }
 
     return (
         <>
-            <a href={url || "#"} className={className}>{text}</a>
+            <a href={url || "#"} className={`brightness-90 ${className}`}>{text}</a>
         </>
     );
 }
